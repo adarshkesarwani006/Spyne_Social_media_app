@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Users</h1>
+<ul class="list-group">
+    {% for user in users %}
+    <li class="list-group-item">{{ user.username }} - {{ user.email }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Discussions</h1>
+{% csrf_token %}
+<a href="create" class="button">Create Discussion</a>
+<ul class="list-group">
+    {% for discussion in discussions %}
+    <li class="list-group-item">
+        <h5>{{ discussion.user.username }}:</h5>
+        <p>{{ discussion.text }}</p>
+        {% if discussion.image %}
+        <img src="{{ discussion.image.url }}" alt="Image" class="img-fluid">
+        {% endif %}
+        <p>Hashtags: {{ discussion.hashtags }}</p>
+        <p>Created on: {{ discussion.created_on }}</p>
+        <p>View count: {{ discussion.view_count }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
